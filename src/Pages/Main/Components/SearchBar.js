@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const OutlineWrapper = styled.div`
   display: flex;
+  margin-top: 100px;
   flex-direction: column;
 `;
 

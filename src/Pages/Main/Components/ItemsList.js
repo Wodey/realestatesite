@@ -10,14 +10,54 @@ const items = [{
   bathrooms: 3,
   bedrooms: 4,
   content: "В самом центре престижной частной виллы, вымощенной и засаженной деревьями, со сторожем в резиденции, состоящей из старых домов с садами, очаровательного дома, особняка на 3..."
+}, {
+  title: "Вилла, LA MUETTE, AUTEUIL, PORTE DAUPHINE, PARIS",
+  price: 26084400,
+  img: "/photos/0/main.jpg",
+  square: 180,
+  bathrooms: 3,
+  bedrooms: 4,
+  content: "В самом центре престижной частной виллы, вымощенной и засаженной деревьями, со сторожем в резиденции, состоящей из старых домов с садами, очаровательного дома, особняка на 3..."
+}, {
+  title: "Вилла, LA MUETTE, AUTEUIL, PORTE DAUPHINE, PARIS",
+  price: 26084400,
+  img: "/photos/0/main.jpg",
+  square: 180,
+  bathrooms: 3,
+  bedrooms: 4,
+  content: "В самом центре престижной частной виллы, вымощенной и засаженной деревьями, со сторожем в резиденции, состоящей из старых домов с садами, очаровательного дома, особняка на 3..."
+}, {
+  title: "Вилла, LA MUETTE, AUTEUIL, PORTE DAUPHINE, PARIS",
+  price: 26084400,
+  img: "/photos/0/main.jpg",
+  square: 180,
+  bathrooms: 3,
+  bedrooms: 4,
+  content: "В самом центре престижной частной виллы, вымощенной и засаженной деревьями, со сторожем в резиденции, состоящей из старых домов с садами, очаровательного дома, особняка на 3..."
+}, {
+  title: "Вилла, LA MUETTE, AUTEUIL, PORTE DAUPHINE, PARIS",
+  price: 26084400,
+  img: "/photos/0/main.jpg",
+  square: 180,
+  bathrooms: 3,
+  bedrooms: 4,
+  content: "В самом центре престижной частной виллы, вымощенной и засаженной деревьями, со сторожем в резиденции, состоящей из старых домов с садами, очаровательного дома, особняка на 3..."
 }];
 
 const Wrapper = styled.div`
   display: flex;
-  padding: 5px;
-  justify-content: center;
-  flex-wrap: wrap;
   margin-top: 40px;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-content: space-between;
+  @media(max-width: 1024px) {
+      width: 80%;
+  }
+
+  @media(max-width: 376px) {
+      flex-direction: column;
+      width: 100%;
+  }
 `;
 
 export default () => {

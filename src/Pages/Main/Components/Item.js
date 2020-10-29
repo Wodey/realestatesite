@@ -2,54 +2,57 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  max-width: 50%;
+  width: 42%;
   display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  flex: 0 1 auto;
+  height: 510px;
+  box-sizing: border-box;
+  padding: 15px;
+  cursor: pointer;
+  border: 1px solid white;
+  justify-content: space-between;
+
+  @media(max-width: 376px) {
+      width: 100%;
+  }
+  &:hover {
+    border: 1px solid black;
+  }
+
 `;
 const Title = styled.span`
+  font-size: 1.3rem;
   color: red;
-  font-size: 1.2rem;
 `;
 const Image = styled.img`
-  width: 400px;
+  width: 100%;
   height: auto;
 `;
 const Price = styled.span`
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 5px;
+  font-size: 1.3rem;
 `;
 const IconsList = styled.div`
-  margin-top: 5px;
 `;
 const Icon = styled.img`
-  width: 2em;
+  width: 1.6em;
 `;
 const IconText = styled.span`
-  font-size: 1.3rem;
-  vertical-align: center;
-  padding: 5px;
+  font-size: 1.2rem;
+  padding: 7px;
   vertical-align: top;
 `;
 const TextBody = styled.div`
-  font-size: 1rem;
+  font-size: 1.1rem;
+`;
 
-  color: black;
-`;
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-right: 15px;
-`;
 
 export default ({i}) => {
   return (
     <Wrapper>
-      <Column>
         <Image src={i.img}/>
-      </Column>
-      <Column>
         <Title>{i.title}</Title>
-        <Price>₽{i.price}</Price>
         <IconsList>
           <Icon src="/square.svg"></Icon>
           <IconText>{i.square}м2</IconText>
@@ -59,7 +62,7 @@ export default ({i}) => {
           <IconText>{i.bedrooms}</IconText>
         </IconsList>
         <TextBody>{i.content}</TextBody>
-      </Column>
+        <Price>₽{i.price}</Price>
     </Wrapper>
   );
 };
