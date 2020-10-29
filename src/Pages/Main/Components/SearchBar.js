@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+import {useSelector, useDispatch} from "react-redux";
 import styled from 'styled-components';
+import {changeRentOrBuy} from "../../../services/buyorrent/actions";
+import {FILTERS} from  "../../../services/buyorrent/actionsTypes";
 
 const OutlineWrapper = styled.div`
   display: flex;
@@ -48,6 +51,8 @@ font-family: 'Roboto', sans-serif;
 
 export default () => {
   const [value, setValue] = useState('');
+  const currentFilter = useSelector(s => s.buyrent.filter);
+  const dispatch = useDispatch();
   return (
     <OutlineWrapper>
     <Wrapper>
@@ -55,8 +60,8 @@ export default () => {
       <Button>Search</Button>
     </Wrapper>
     <Switchers>
-      <Switch activated={true}>Buy</Switch>
-      <Switch>Rent</Switch>
+      <Switch activated={currentFilter === FILTERS.BUY} onClick={() => dispatch(changeRentOrBuy(FILTERS.BUY))}>Buy</Switch>
+      <Switch activated={currentFilter === FILTERS.RENT} onClick={() => dispatch(changeRentOrBuy(FILTERS.RENT))}>Rent</Switch>
     </Switchers>
     </OutlineWrapper>
   );

@@ -1,0 +1,17 @@
+import {CHANGE_FILTER,FILTERS} from "./actionsTypes";
+
+const initialState = {
+  filter: FILTERS.BUY
+};
+
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case CHANGE_FILTER:
+      return {
+        ...state,
+        filter: action.data
+      };
+    default:
+      return state;
+  };
+};
