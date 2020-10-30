@@ -9,6 +9,7 @@ import Main from './Pages/Main';
 import initializeStore from './services';
 import {Provider} from 'react-redux';
 import {PersistGate} from "redux-persist/integration/react";
+import "./firebase";
 
 function App() {
   const {store, persistor} = initializeStore();
