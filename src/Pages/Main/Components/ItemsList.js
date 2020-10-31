@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import Item from './Item';
 import styled from 'styled-components';
+import {useSelector, useDispatch} from 'react-redux';
+import {getItems} from '../../../services/itemsreducer/actions';
 
 const items = [{
   title: "Вилла, LA MUETTE, AUTEUIL, PORTE DAUPHINE, PARIS",
@@ -61,6 +63,12 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
+  const homes = useSelector(s => s.homes.homes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getItems());
+  }, [homes])
   return (
     <Wrapper>
       {
