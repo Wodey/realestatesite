@@ -51,18 +51,18 @@ const TextBody = styled.div`
 export default ({i}) => {
   return (
     <Wrapper>
-        <Image src={i.img}/>
-        <Title>{i.title}</Title>
+        <Image src={i.mainimg}/>
+        <Title>{i.address}</Title>
         <IconsList>
           <Icon src="/square.svg"></Icon>
-          <IconText>{i.square}м2</IconText>
+          <IconText>{i.square}</IconText>
           <Icon src="/bathroom.svg"></Icon>
           <IconText>{i.bathrooms}</IconText>
           <Icon src="/bedroom.svg"></Icon>
           <IconText>{i.bedrooms}</IconText>
         </IconsList>
-        <TextBody>{i.content}</TextBody>
-        <Price>₽{i.price}</Price>
+        <TextBody>{i.content.slice(0,100) + "..."}</TextBody>
+        <Price>₽ {i.price}</Price>
     </Wrapper>
   );
 };

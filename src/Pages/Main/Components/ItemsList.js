@@ -72,7 +72,7 @@ export default () => {
   return (
     <Wrapper>
       {
-        items.map((i) => {
+        homes.map((i) => {
           return <Item i={i}/>
         })
       }
