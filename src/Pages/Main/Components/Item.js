@@ -28,7 +28,7 @@ const Title = styled.span`
 `;
 const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 40%;
 `;
 const Price = styled.span`
   font-size: 1.3rem;
