@@ -21,12 +21,13 @@ const Wrapper = styled.div`
 `;
 
 export default () => {
+  const sort = useSelector(s => s.sort.sort);
   const homes = useSelector(s => s.homes.homes);
   const dispatch = useDispatch();
   const type = useSelector(s => s.buyrent.filter);
   const typeword = useSelector(s => s.type.type);
   useEffect(() => {
-    dispatch(getItems(type, typeword));
+    dispatch(getItems(type, typeword, sort));
   }, [homes])
   return (
     <Wrapper>

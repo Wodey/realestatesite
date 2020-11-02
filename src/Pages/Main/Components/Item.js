@@ -55,14 +55,14 @@ export default ({i}) => {
         <Title>{i.address}</Title>
         <IconsList>
           <Icon src="/square.svg"></Icon>
-          <IconText>{i.square}</IconText>
+          <IconText>{i.square}m²</IconText>
           <Icon src="/bathroom.svg"></Icon>
           <IconText>{i.bathrooms}</IconText>
           <Icon src="/bedroom.svg"></Icon>
           <IconText>{i.bedrooms}</IconText>
         </IconsList>
         <TextBody>{i.content.slice(0,100) + "..."}</TextBody>
-        <Price>₽ {i.price}</Price>
+        <Price>₽ {i.price.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</Price>
     </Wrapper>
   );
 };
