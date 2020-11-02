@@ -10,6 +10,9 @@ const OutlineWrapper = styled.div`
   margin-top: 100px;
   flex-direction: column;
   width: 350px;
+  @media(max-width: 376px) {
+      width: 300px;
+  }
 `;
 
 const Switchers = styled.div`

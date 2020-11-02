@@ -9,6 +9,9 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 350px;
   margin-top: 15px;
+  @media(max-width: 376px) {
+      width: 300px;
+  }
 `;
 const Item = styled.div`
   font-size: 1rem;
