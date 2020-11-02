@@ -9,6 +9,7 @@ const OutlineWrapper = styled.div`
   display: flex;
   margin-top: 100px;
   flex-direction: column;
+  width: 350px;
 `;
 
 const Switchers = styled.div`
@@ -35,6 +36,7 @@ const Input = styled.input`
   border: none;
   border-bottom: 1px solid black;
   margin-right: 5px;
+  width: 80%;
 `;
 const Button = styled.button`
   border: none;
