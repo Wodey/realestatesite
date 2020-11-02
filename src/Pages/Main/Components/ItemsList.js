@@ -24,8 +24,9 @@ export default () => {
   const homes = useSelector(s => s.homes.homes);
   const dispatch = useDispatch();
   const type = useSelector(s => s.buyrent.filter);
+  const typeword = useSelector(s => s.type.type);
   useEffect(() => {
-    dispatch(getItems(type));
+    dispatch(getItems(type, typeword));
   }, [homes])
   return (
     <Wrapper>

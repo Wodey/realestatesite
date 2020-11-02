@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from "react-redux";
 import styled from 'styled-components';
 import {changeRentOrBuy} from "../../../services/buyorrent/actions";
 import {FILTERS} from  "../../../services/buyorrent/actionsTypes";
+import {typeText} from "../../../services/typeplace/actions";
 
 const OutlineWrapper = styled.div`
   display: flex;
@@ -53,11 +54,19 @@ export default () => {
   const [value, setValue] = useState('');
   const currentFilter = useSelector(s => s.buyrent.filter);
   const dispatch = useDispatch();
+  const searchPlace = () => {
+    dispatch(typeText(value));
+  };
+  const searchPlaceEnter = (e) => {
+    if(e.key == "Enter") {
+      dispatch(typeText(value));
+    }
+  }
   return (
     <OutlineWrapper>
     <Wrapper>
-      <Input value={value} onChange={e => setValue(e.target.value)}/>
-      <Button>Search</Button>
+      <Input value={value} onChange={e => setValue(e.target.value)} onKeyPress={searchPlaceEnter}/>
+      <Button onClick={searchPlace} >Search</Button>
     </Wrapper>
     <Switchers>
       <Switch activated={currentFilter === FILTERS.BUY} onClick={() => dispatch(changeRentOrBuy(FILTERS.BUY))}>Buy</Switch>
