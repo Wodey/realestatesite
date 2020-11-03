@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {changeRentOrBuy} from "../../../services/buyorrent/actions";
 import {FILTERS} from  "../../../services/buyorrent/actionsTypes";
 import {typeText} from "../../../services/typeplace/actions";
+import {openExtraOptions} from "../../../services/extraOptionsReducer/actions";
 
 const OutlineWrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const OutlineWrapper = styled.div`
 
 const Switchers = styled.div`
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
 `;
 const Switch = styled.button`
   font-size: 1.1rem;
@@ -55,9 +56,14 @@ font-family: 'Roboto', sans-serif;
   }
 `;
 
+const Extra = styled(Switch)`
+  margin-left: auto;
+`;
+
 export default () => {
   const [value, setValue] = useState('');
   const currentFilter = useSelector(s => s.buyrent.filter);
+  const isOpenExtraOptions = useSelector(s => s.extraOptions.isOpen);
   const dispatch = useDispatch();
   const searchPlace = () => {
     dispatch(typeText(value));
@@ -76,6 +82,11 @@ export default () => {
     <Switchers>
       <Switch activated={currentFilter === FILTERS.BUY} onClick={() => dispatch(changeRentOrBuy(FILTERS.BUY))}>Buy</Switch>
       <Switch activated={currentFilter === FILTERS.RENT} onClick={() => dispatch(changeRentOrBuy(FILTERS.RENT))}>Rent</Switch>
+      <Extra activated={isOpenExtraOptions} onClick={(e) => {
+        e.stopPropagation();
+        dispatch(openExtraOptions());
+      }
+      }>More options</Extra>
     </Switchers>
     </OutlineWrapper>
   );
