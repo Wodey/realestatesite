@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import {changeRentOrBuy} from "../../../services/buyorrent/actions";
 import {FILTERS} from  "../../../services/buyorrent/actionsTypes";
 import {typeText} from "../../../services/typeplace/actions";
-import {openExtraOptions} from "../../../services/extraOptionsReducer/actions";
+import {openExtraOptions, closeExtraOptions} from "../../../services/extraOptionsReducer/actions";
 
 const OutlineWrapper = styled.div`
   display: flex;
   margin-top: 100px;
+  user-select: none;
   flex-direction: column;
   width: 350px;
   @media(max-width: 376px) {
@@ -84,7 +85,11 @@ export default () => {
       <Switch activated={currentFilter === FILTERS.RENT} onClick={() => dispatch(changeRentOrBuy(FILTERS.RENT))}>Rent</Switch>
       <Extra activated={isOpenExtraOptions} onClick={(e) => {
         e.stopPropagation();
-        dispatch(openExtraOptions());
+        if(isOpenExtraOptions) {
+          dispatch(closeExtraOptions())
+        } else {
+          dispatch(openExtraOptions());
+        }
       }
       }>More options</Extra>
     </Switchers>

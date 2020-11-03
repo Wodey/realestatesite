@@ -6,6 +6,7 @@ import {SORT_TYPES} from "../../../services/sortReducer/actionsTypes";
 
 const Wrapper = styled.div`
   display: flex;
+  user-select: none;
   justify-content: space-between;
   width: 350px;
   margin-top: 15px;
