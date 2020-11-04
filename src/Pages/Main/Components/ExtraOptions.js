@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {useSelector, useDispatch} from "react-redux";
 import {openExtraOptions, openExtraOption, closeExtraOptions} from "../../../services/extraOptionsReducer/actions";
 import {OPENEDOPTIONS} from '../../../services/extraOptionsReducer/actionsTypes';
-import {Price} from "./OptionsUtills";
+import {Price, Square, Bedrooms, Bathrooms} from "./OptionsUtills";
 
 const OutlineWrapper = styled.div`
     display: ${props => props.isOpen ? "block" : "none"};
@@ -11,13 +11,22 @@ const OutlineWrapper = styled.div`
     user-select: none;
     top: 180px;
     right: 560px;
+    @media(max-width: 1024px) {
+      right: 320px;
+    }
+    @media(max-width: 768px) {
+      right: 190px;
+    }
+    @media(max-width: 376px) {
+      right: 40px;
+    }
 `;
 const Wrapper = styled.div`
   width: 140px;
   display: flex;
   flex-direction: column;
   @media(max-width: 376px) {
-      width: 300px;
+      width: 120px;
   }
 `;
 
@@ -57,9 +66,13 @@ export default () => {
     <OutlineWrapper isOpen={isOpen} onClick={(e) => e.stopPropagation()}>
       <Wrapper>
         <ItemTitle isActive={price} onClick={() => dispatch(openExtraOption(OPENEDOPTIONS.PRICE))}>Price</ItemTitle>
+        <Price />
         <ItemTitle isActive={square} onClick={() => dispatch(openExtraOption(OPENEDOPTIONS.SQUARE))}>Square</ItemTitle>
+        <Square />
         <ItemTitle isActive={bedrooms} onClick={() => dispatch(openExtraOption(OPENEDOPTIONS.BEDROOMS))}>Bedrooms</ItemTitle>
+        <Bedrooms />
         <ItemTitle isActive={bathrooms} onClick={() => dispatch(openExtraOption(OPENEDOPTIONS.BATHROOMS))}>Bathrooms</ItemTitle>
+        <Bathrooms />
       </Wrapper>
     </OutlineWrapper>
   )
