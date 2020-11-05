@@ -62,7 +62,7 @@ export default ({i}) => {
           <IconText>{i.bedrooms}</IconText>
         </IconsList>
         <TextBody>{i.content.slice(0,100) + "..."}</TextBody>
-        <Price>₽ {i.price.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</Price>
+        <Price>₽{i.price.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</Price>
     </Wrapper>
   );
 };

@@ -3,7 +3,7 @@ import {SORT_TYPES} from '../sortReducer/actionsTypes';
 
 import firebase from "firebase";
 
-export const getItems = (type,typeword, sort) => async dispatch => {
+export const getItems = (type,typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms ) => async dispatch => {
   let homes = await firebase.database().ref("homes").orderByChild('type').equalTo(type).limitToFirst(15).once('value');
   homes = Object.values(homes.val()) || [];
   if(sort === SORT_TYPES.MAXPRICE) {
@@ -46,6 +46,33 @@ export const getItems = (type,typeword, sort) => async dispatch => {
       }
       return 0;
     });
+  }
+  if(bedrooms === "+5") {
+    homes = homes.filter(i => i.bedrooms >= 5);
+  } else {
+    homes = homes.filter(i => i.bedrooms >= bedrooms);
+  }
+
+  if(bathrooms === "+5") {
+    homes = homes.filter(i => i.bathrooms >= 5)
+  } else {
+    homes = homes.filter(i => i.bathrooms >= bathrooms);
+  }
+
+  if (priceLimit[0] && priceLimit[0] > 0) {
+    homes = homes.filter(i => Number.parseInt(i.price, 10) >= Number.parseInt(priceLimit[0]) * 1000000);
+  }
+
+  if (priceLimit[1] && priceLimit[1] > 0) {
+    homes = homes.filter(i => Number.parseInt(i.price, 10) <= Number.parseInt(priceLimit[1]) * 1000000);
+  }
+
+  if (squareLimit[0] && squareLimit[0] > 1) {
+    homes = homes.filter(i => i.square >= Number.parseInt(squareLimit[0]));
+  }
+
+  if (squareLimit[1] && squareLimit[1] > 1) {
+    homes = homes.filter(i => i.square <= Number.parseInt(squareLimit[1]));
   }
 
   if(typeword !== '') {

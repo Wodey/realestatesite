@@ -26,8 +26,13 @@ export default () => {
   const dispatch = useDispatch();
   const type = useSelector(s => s.buyrent.filter);
   const typeword = useSelector(s => s.type.type);
+  const priceLimit = useSelector(s => s.extraOptionsFunc.price);
+  const squareLimit = useSelector(s => s.extraOptionsFunc.square);
+  const bedrooms = useSelector(s => s.extraOptionsFunc.bedrooms);
+  const bathrooms = useSelector(s => s.extraOptionsFunc.bathrooms);
+
   useEffect(() => {
-    dispatch(getItems(type, typeword, sort));
+    dispatch(getItems(type, typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms));
   }, [homes])
   return (
     <Wrapper>

@@ -4,11 +4,13 @@ import ItemsReducer from './itemsreducer/reducer';
 import TypePlaceReducer from './typeplace/reducer';
 import SortReducer from './sortReducer/reducer';
 import ExtraOptions from './extraOptionsReducer/reducer';
+import ExtraOptionsFunctions from './extraOptionsFunctionsReducer/reducer';
 
 export default combineReducers({
   buyrent: BuyRentReducer,
   homes: ItemsReducer,
   type: TypePlaceReducer,
   sort: SortReducer,
-  extraOptions: ExtraOptions
+  extraOptions: ExtraOptions,
+  extraOptionsFunc: ExtraOptionsFunctions
 });
