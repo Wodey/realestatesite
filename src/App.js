@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Main from './Pages/Main';
 import HomeItem from "./Pages/HomeItem";
+import Header from "./Pages/Header";
 import initializeStore from './services';
 import {Provider} from 'react-redux';
 import {PersistGate} from "redux-persist/integration/react";
@@ -18,6 +19,7 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <div className="App">
           <Router>
+            <Header />
             <Switch>
               <Route path="/" exact>
                 <Main />
