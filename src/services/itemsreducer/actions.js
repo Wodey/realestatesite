@@ -4,56 +4,39 @@ import {SORT_TYPES} from '../sortReducer/actionsTypes';
 import firebase from "firebase";
 
 export const getItems = (type,typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms ) => async dispatch => {
-  let snapshoot = await firebase.firestore().collection("homes").where('type', '==', type).get();
+  let snapshoot = firebase.firestore().collection("homes").where('type', '==', type).orderBy("bedrooms");
 
+  switch (bedrooms) {
+    case "+5":
+      snapshoot = snapshoot.where("bedrooms", ">=", 5);
+      break;
+    default:
+      snapshoot = snapshoot.where("bedrooms", ">=", bedrooms);
+  }
+  
+
+  switch(sort) {
+    case SORT_TYPES.MAXPRICE:
+      snapshoot = snapshoot.orderBy('price', 'desc');
+      break;
+    case SORT_TYPES.MINPRICE:
+      snapshoot = snapshoot.orderBy('price');
+      break;
+    case SORT_TYPES.SQUARE:
+      snapshoot = snapshoot.orderBy('square', 'desc');
+      break;
+    case SORT_TYPES.BEDROOMS:
+      snapshoot = snapshoot.orderBy('bedrooms', "desc");
+      break;
+  }
+
+  snapshoot = await snapshoot.get();
   const homes = [];
   snapshoot.forEach((item, i) => {
     homes.push(item.data());
   });
 
-
-  /* homes = Object.values(homes.val()) || [];
-  if(sort === SORT_TYPES.MAXPRICE) {
-    homes.sort((a,b) => {
-      if(Number.parseInt(a.price, 10) > Number.parseInt(b.price, 10)) {
-        return -1;
-      }
-      if (Number.parseInt(a.price, 10) < Number.parseInt(b.price, 10)) {
-        return 1;
-      }
-      return 0;
-    });
-  } else if (sort === SORT_TYPES.MINPRICE) {
-    homes.sort((a,b) => {
-      if(Number.parseInt(a.price, 10) > Number.parseInt(b.price, 10)) {
-        return 1;
-      }
-      if (Number.parseInt(a.price, 10) < Number.parseInt(b.price, 10)) {
-        return -1;
-      }
-      return 0;
-    });
-  } else if (sort === SORT_TYPES.SQUARE) {
-    homes.sort((a,b) => {
-      if(a.square > b.square) {
-        return -1;
-      }
-      if (a.square < b.square) {
-        return 1;
-      }
-      return 0;
-    })
-  } else if (sort === SORT_TYPES.BEDROOMS) {
-    homes.sort((a,b) => {
-      if(a.bedrooms > b.bedrooms) {
-        return -1;
-      }
-      if(a.bedrooms < b.bedrooms) {
-        return 1;
-      }
-      return 0;
-    });
-  }
+  /*
   if(bedrooms === "+5") {
     homes = homes.filter(i => i.bedrooms >= 5);
   } else {
