@@ -8,6 +8,9 @@ import {
 import Main from './Pages/Main';
 import HomeItem from "./Pages/HomeItem";
 import Header from "./Pages/Header";
+import Footer from "./Pages/Footer";
+import About from "./Pages/About";
+import Sell from './Pages/Sell';
 import initializeStore from './services';
 import {Provider} from 'react-redux';
 import {PersistGate} from "redux-persist/integration/react";
@@ -27,7 +30,14 @@ function App() {
               <Route path="/homes/:id">
                 <HomeItem />
               </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/sell">
+                <Sell />
+              </Route>
             </Switch>
+            <Footer />
           </Router>
         </div>
       </PersistGate>

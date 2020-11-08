@@ -2,8 +2,8 @@ import React from 'react';
 import ItemList from "./Components/ItemsList";
 import SearchBar from "./Components/SearchBar";
 import ExtraOptions from './Components/ExtraOptions';
-import Footer from "./Components/Footer";
 import SortPanel from './Components/SortPanel';
+import Pages from "./Components/Pages";
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -20,7 +20,7 @@ export default () => {
       <ExtraOptions />
       <SortPanel />
       <ItemList />
-      <Footer />
+      <Pages />
     </Wrapper>
   )
 };
