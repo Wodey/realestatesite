@@ -5,6 +5,7 @@ import TypePlaceReducer from './typeplace/reducer';
 import SortReducer from './sortReducer/reducer';
 import ExtraOptions from './extraOptionsReducer/reducer';
 import ExtraOptionsFunctions from './extraOptionsFunctionsReducer/reducer';
+import PagesReducer from "./pagesReducer/reducer";
 
 export default combineReducers({
   buyrent: BuyRentReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   type: TypePlaceReducer,
   sort: SortReducer,
   extraOptions: ExtraOptions,
-  extraOptionsFunc: ExtraOptionsFunctions
+  extraOptionsFunc: ExtraOptionsFunctions,
+  pages: PagesReducer
 });
