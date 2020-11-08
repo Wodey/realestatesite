@@ -7,7 +7,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   height: 70px;
   align-items: center;
-  background: black;
+  background: transparent;
+  width: 100%;
 `;
 const Logo = styled.span`
   font-size: 1.5rem;
@@ -19,6 +20,12 @@ const Items = styled.div`
   display: flex;
   width: 20%;
   justify-content: space-around;
+  @media(max-width: 768px) {
+    width: 30%;
+  }
+  @media(max-width: 426px) {
+    width: 50%;
+  }
 `;
 const Item = styled.span`
   font-size: 1.3rem;

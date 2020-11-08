@@ -9,12 +9,23 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.div`
-  width: 20%;
+  width: 15%;
   font-size: 1.3rem;
-  background: rgb(221, 57, 34);
   color: white;
   padding: 15px;
   text-align: center;
+  @media(max-width: 768px) {
+    width: 30%;
+  }
+  @media(max-width: 426px) {
+    width: 40%;
+  }
+  @media(max-width: 376px) {
+    width: 45%;
+  }
+  @media(max-width: 320px) {
+    width: 60%;
+  }
 `;
 
 export default () => {

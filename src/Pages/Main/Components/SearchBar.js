@@ -12,8 +12,12 @@ const OutlineWrapper = styled.div`
   user-select: none;
   flex-direction: column;
   width: 350px;
-  @media(max-width: 376px) {
-      width: 300px;
+
+  @media(max-width: 426px) {
+    width: 290px;
+  }
+  @media(max-width:320px) {
+    width: 270px;
   }
 `;
 
@@ -25,7 +29,7 @@ const Switch = styled.button`
   font-size: 1.1rem;
   border: none;
   outline: none;
-  background: white;
+  background: transparent;
   color: ${props => props.activated ? "red" : "black"};
   cursor: pointer;
   margin-right: 5px;
@@ -47,7 +51,7 @@ const Button = styled.button`
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  background: white;
+  background: transparent;
 font-family: 'Roboto', sans-serif;
   color: black;
   outline: none;

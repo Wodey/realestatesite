@@ -5,17 +5,31 @@ import {nextPage, prevPage, setPage} from "../../../services/pagesReducer/action
 const OutlineWrapper = styled.div`
   position: absolute;
   bottom: 100px;
-  width: 20%;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 375px;
+  margin: auto;
+  @media(max-width: 768px) {
+    width: 32%;
+  }
+  @media(max-width: 426px) {
+    width: 52%;
+  }
+  @media(max-width: 376px) {
+    width: 70%;
+  }
+  @media(max-width: 320px) {
+    width: 95%;
+  }
 `;
 const Button = styled.button`
   outline: none;
   border: none;
-  background: white;
+  background: transparent;
   cursor: pointer;
   font-size: 1.3rem;
   &:hover {

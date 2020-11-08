@@ -10,8 +10,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 350px;
   margin-top: 15px;
-  @media(max-width: 376px) {
-      width: 300px;
+  @media(max-width: 426px) {
+    width: 290px;
+  }
+  @media(max-width: 320px) {
+    width: 270px;
   }
 `;
 const Item = styled.div`
