@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   align-items: center;
   height: calc(750px - 140px);
   background: white;
-  width: 90%;
+  width: 100%; 
   margin: auto;
 `;
 
