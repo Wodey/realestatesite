@@ -2,8 +2,7 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import Main from './Pages/Main';
 import HomeItem from "./Pages/HomeItem";
@@ -18,10 +17,8 @@ import {PersistGate} from "redux-persist/integration/react";
 import "./firebase";
 
 const Wrapper = styled.div`
-    background-image: url("/bg.jpg");
     background-size: 100%;
     width: 100%;
-    height: 760px;
 `;
 function App() {
   const {store, persistor} = initializeStore();

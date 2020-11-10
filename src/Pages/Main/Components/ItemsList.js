@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React,{useEffect} from 'react';
 import Item from './Item';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export default () => {
+export default function ItemList () {
   const sort = useSelector(s => s.sort.sort);
   const homes = useSelector(s => s.homes.homes);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(getItems(type, typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms));
-  }, [homes])
+  }, [homes, type, typeword, sort, priceLimit, dispatch, squareLimit, bedrooms, bathrooms])
   return (
     <Wrapper>
       {

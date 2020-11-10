@@ -48,7 +48,7 @@ const TextBody = styled.div`
 `;
 
 
-export default ({i}) => {
+export default function Item({i}) {
   return (
     <Wrapper>
         <Image src={i.mainimg}/>

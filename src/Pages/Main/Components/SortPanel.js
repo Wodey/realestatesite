@@ -23,7 +23,7 @@ const Item = styled.div`
   color: ${props => props.sort ? "red" : "#7a7a7a" };
 
 `;
-export default () => {
+export default function SortPnale () {
   const dispatch = useDispatch();
   const sort = useSelector(s => s.sort.sort);
 

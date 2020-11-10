@@ -65,7 +65,7 @@ const Extra = styled(Switch)`
   margin-left: auto;
 `;
 
-export default () => {
+export default function SearchBar ()  {
   const [value, setValue] = useState('');
   const currentFilter = useSelector(s => s.buyrent.filter);
   const isOpenExtraOptions = useSelector(s => s.extraOptions.isOpen);
@@ -74,7 +74,7 @@ export default () => {
     dispatch(typeText(value));
   };
   const searchPlaceEnter = (e) => {
-    if(e.key == "Enter") {
+    if(e.key === "Enter") {
       dispatch(typeText(value));
     }
   }

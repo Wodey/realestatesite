@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 import {setPriceLimit, setSquareLimit, setBedroomsLimit, setBathroomsLimit} from '../../../services/extraOptionsFunctionsReducer/actions';
@@ -89,8 +89,8 @@ export const Square = () => {
     <SquareWrapper isOpen={isOpen}>
     <Concurrency>m²</Concurrency>
     <Inputs>
-      <Input placeholder="min" type="number" />
-      <Input placeholder="max" type="number" />
+      <Input placeholder="min" onChange={setMin} value={min} type="number" />
+      <Input placeholder="max" onChange={setMax} value={max} type="number" />
     </Inputs>
     </SquareWrapper>
   )

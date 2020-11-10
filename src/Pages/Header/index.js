@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   height: 70px;
   align-items: center;
-  background: transparent;
+  background: black;
   width: 100%;
 `;
 const Logo = styled.span`
@@ -36,7 +36,7 @@ const Item = styled.span`
   }
 `;
 
-export default () => {
+export default function Header () {
   const address = useHistory().location.pathname;
   return (
     <Wrapper>

@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import {useSelector, useDispatch} from "react-redux";
 import {nextPage, prevPage, setPage} from "../../../services/pagesReducer/actions.js";
 const OutlineWrapper = styled.div`
-  position: absolute;
-  bottom: 100px;
   width: 100%;
+  padding: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -17,7 +16,7 @@ const Wrapper = styled.div`
     width: 32%;
   }
   @media(max-width: 426px) {
-    width: 52%;
+    width: 65%;
   }
   @media(max-width: 376px) {
     width: 70%;
@@ -44,7 +43,7 @@ const Item = styled.span`
 const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
-export default () => {
+export default function Pages() {
   const dispatch = useDispatch();
   const current = useSelector(s => s.pages.current);
   return (

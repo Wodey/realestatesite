@@ -4,17 +4,8 @@ import {SORT_TYPES} from '../sortReducer/actionsTypes';
 import firebase from "firebase";
 
 export const getItems = (type,typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms ) => async dispatch => {
-  let snapshoot = firebase.firestore().collection("homes").where('type', '==', type).orderBy("bedrooms");
-
-  switch (bedrooms) {
-    case "+5":
-      snapshoot = snapshoot.where("bedrooms", ">=", 5);
-      break;
-    default:
-      snapshoot = snapshoot.where("bedrooms", ">=", bedrooms);
-  }
-  
-
+  let snapshoot = firebase.firestore().collection("homes").where('type', '==', type);
+/*
   switch(sort) {
     case SORT_TYPES.MAXPRICE:
       snapshoot = snapshoot.orderBy('price', 'desc');
@@ -29,8 +20,8 @@ export const getItems = (type,typeword, sort, priceLimit, squareLimit, bedrooms,
       snapshoot = snapshoot.orderBy('bedrooms', "desc");
       break;
   }
-
-  snapshoot = await snapshoot.get();
+*/
+  snapshoot = await snapshoot.limit(25).get();
   const homes = [];
   snapshoot.forEach((item, i) => {
     homes.push(item.data());

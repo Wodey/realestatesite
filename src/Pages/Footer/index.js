@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const OutlineWrapper = styled.div`
-  position: absolute;
-  bottom: 0px;
   width: 100%;
-  background: transparent;
+  background: black;
 `;
 const InlineWrapper = styled.div`
   display: flex;
@@ -40,7 +38,7 @@ const Item = styled.span`
   cursor: pointer;
 
 `;
-export default () => {
+export default function Footer()  {
   return (
     <OutlineWrapper>
       <InlineWrapper>

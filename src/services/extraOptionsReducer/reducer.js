@@ -8,7 +8,7 @@ const initialState = {
   bathrooms: false
 };
 
-export default (state = initialState, action) => {
+export default function extraOptionsReducer(state = initialState, action) {
   switch(action.type) {
     case OPEN_EXTRA_OPTIONS:
       return {

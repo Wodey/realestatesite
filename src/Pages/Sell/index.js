@@ -97,7 +97,7 @@ const Type = styled.select`
 const TypeItem = styled.option`
 `;
 
-export default () => {
+export default function Sell() {
   const [title, setTitle] = useState("");
   const [address,setAddress] = useState("");
   const [description, setDescription] = useState("");

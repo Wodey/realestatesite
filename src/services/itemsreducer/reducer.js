@@ -4,7 +4,7 @@ const initialState = {
   homes: []
 };
 
-export default (state = initialState, action) => {
+export default function ItemsReducer(state = initialState, action) {
   switch(action.type) {
     case GET_ITEMS:
       return {

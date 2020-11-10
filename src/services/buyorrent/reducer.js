@@ -4,7 +4,7 @@ const initialState = {
   filter: FILTERS.BUY
 };
 
-export default (state = initialState, action) => {
+export default function BuyOrRent (state = initialState, action) {
   switch(action.type) {
     case CHANGE_FILTER:
       return {

@@ -10,13 +10,12 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(750px - 140px);
   background: white;
-  width: 100%; 
+  width: 100%;
   margin: auto;
 `;
 
-export default () => {
+export default function Main () {
   return (
     <Wrapper>
       <SearchBar/>

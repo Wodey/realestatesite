@@ -4,7 +4,7 @@ const initialState = {
   type: ""
 };
 
-export default (state = initialState, action) => {
+export default function TypePlace(state = initialState, action) {
   switch(action.type) {
     case TYPE_TEXT:
       return {

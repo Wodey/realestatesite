@@ -7,7 +7,7 @@ const initialState = {
   bathrooms: null
 };
 
-export default (state = initialState, action) => {
+export default function extraOptonsFuncReducer(state = initialState, action) {
   switch(action.type) {
     case SET_PRICE_LIMIT:
       return {

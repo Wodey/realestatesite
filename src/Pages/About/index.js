@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  height: 512px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 const Text = styled.div`
   width: 15%;
   font-size: 1.3rem;
   color: white;
+  background: black;
   padding: 15px;
   text-align: center;
   @media(max-width: 768px) {
@@ -28,7 +29,7 @@ const Text = styled.div`
   }
 `;
 
-export default () => {
+export default function About () {
   return (
     <Wrapper>
       <Text>

@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 50%;
   margin: auto;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
@@ -47,7 +48,6 @@ const Content = styled.div`
 const ItemTitle = styled.span`
   font-size: 1.3rem;
 `;
-const Type = styled.span``;
 const ItemValue = styled.span`
   font-size: 1.3rem;
   color: red;
@@ -66,7 +66,7 @@ const ItemsBlock = styled.div`
 `;
 
 
-export default () => {
+export default function HomeItem () {
   console.log(item)
   return (
     <Wrapper>

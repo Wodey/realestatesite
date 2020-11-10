@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from "react-redux";
-import {openExtraOptions, openExtraOption, closeExtraOptions} from "../../../services/extraOptionsReducer/actions";
+import { openExtraOption, closeExtraOptions} from "../../../services/extraOptionsReducer/actions";
 import {OPENEDOPTIONS} from '../../../services/extraOptionsReducer/actionsTypes';
 import {Price, Square, Bedrooms, Bathrooms} from "./OptionsUtills";
 
@@ -43,7 +43,7 @@ const ItemTitle = styled.span`
 `;
 
 
-export default () => {
+export default function ExtraOptions () {
   const isOpen = useSelector(s => s.extraOptions.isOpen)
   const price = useSelector(s => s.extraOptions.price);
   const square = useSelector(s => s.extraOptions.square);
