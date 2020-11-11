@@ -5,22 +5,21 @@ import firebase from "firebase";
 
 export const getItems = (type,typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms ) => async dispatch => {
   let snapshoot = firebase.firestore().collection("homes").where('type', '==', type);
-/*
+
   switch(sort) {
     case SORT_TYPES.MAXPRICE:
-      snapshoot = snapshoot.orderBy('price', 'desc');
+      snapshoot = snapshoot.orderBy("price", "desc");
       break;
     case SORT_TYPES.MINPRICE:
-      snapshoot = snapshoot.orderBy('price');
+      snapshoot = snapshoot.orderBy("price", "asc");
       break;
     case SORT_TYPES.SQUARE:
-      snapshoot = snapshoot.orderBy('square', 'desc');
+      snapshoot = snapshoot.orderBy("square", "desc");
       break;
     case SORT_TYPES.BEDROOMS:
-      snapshoot = snapshoot.orderBy('bedrooms', "desc");
+      snapshoot = snapshoot.orderBy("bedrooms", "desc");
       break;
   }
-*/
   snapshoot = await snapshoot.limit(25).get();
   const homes = [];
   snapshoot.forEach((item, i) => {
