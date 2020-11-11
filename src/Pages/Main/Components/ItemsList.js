@@ -33,7 +33,7 @@ export default function ItemList () {
 
   useEffect(() => {
     dispatch(getItems(type, typeword, sort, priceLimit, squareLimit, bedrooms, bathrooms));
-  }, [homes, type, typeword, sort, priceLimit, dispatch, squareLimit, bedrooms, bathrooms])
+  }, [type, typeword, sort, priceLimit, dispatch, squareLimit, bedrooms, bathrooms])
   return (
     <Wrapper>
       {
