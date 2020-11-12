@@ -19,6 +19,7 @@ import "./firebase";
 const Wrapper = styled.div`
     background-size: 100%;
     width: 100%;
+    overflow: hidden;
 `;
 function App() {
   const {store, persistor} = initializeStore();

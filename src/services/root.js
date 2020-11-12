@@ -6,6 +6,7 @@ import SortReducer from './sortReducer/reducer';
 import ExtraOptions from './extraOptionsReducer/reducer';
 import ExtraOptionsFunctions from './extraOptionsFunctionsReducer/reducer';
 import PagesReducer from "./pagesReducer/reducer";
+import OneItemReducer from "./oneitemreducer/reducer";
 
 export default combineReducers({
   buyrent: BuyRentReducer,
@@ -14,5 +15,6 @@ export default combineReducers({
   sort: SortReducer,
   extraOptions: ExtraOptions,
   extraOptionsFunc: ExtraOptionsFunctions,
-  pages: PagesReducer
+  pages: PagesReducer,
+  item: OneItemReducer
 });

@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import styled from 'styled-components';
 import data from "../../newFile.json";
-
-const item = data["homes"][0];
+import {useDispatch, useSelector} from "react-redux";
+import {useParams} from "react-router-dom";
+import {getItem, clearItem} from "../../services/oneitemreducer/actions";
 
 const Wrapper = styled.div`
   display: flex;
@@ -67,9 +68,20 @@ const ItemsBlock = styled.div`
 
 
 export default function HomeItem () {
-  console.log(item)
+  const {id} = useParams();
+  const dispatch = useDispatch();
+  const item = useSelector(s => s.item.item);
+  useEffect(() => {
+    dispatch(getItem(id));
+
+    return () => {
+      dispatch(clearItem());
+    }
+  }, [])
   return (
     <Wrapper>
+      { !item ? "loading" :
+      <>
       <Images>
         {item.images.map(i => <Image src={i} />)}
       </Images>
@@ -84,11 +96,13 @@ export default function HomeItem () {
         <ItemTitle>Square</ItemTitle>
         <ItemValue>{item.square}m²</ItemValue>
         <ItemTitle>Price</ItemTitle>
-        <ItemValue>₽{item.price.replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</ItemValue>
+        <ItemValue>₽{item.price.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</ItemValue>
       </ItemsBlock>
       <PhoneWrapper>
         Wanna {item.type}? Call <Phone>{item.phone}</Phone>
       </PhoneWrapper>
+      </>
+    }
     </Wrapper>
   );
 };

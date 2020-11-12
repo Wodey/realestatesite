@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
   background: black;
   width: 100%;
+  margin-bottom: 4%;
 `;
 const Logo = styled.span`
   font-size: 1.5rem;
