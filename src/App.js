@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,8 +7,9 @@ import {
 import Main from './Pages/Main';
 import HomeItem from "./Pages/HomeItem";
 import Header from "./Pages/Header";
+import Login from "./Pages/Login";
 import Footer from "./Pages/Footer";
-import About from "./Pages/About";
+import Profile from "./Pages/Profile";
 import Sell from './Pages/Sell';
 import styled from "styled-components";
 import initializeStore from './services';
@@ -23,12 +24,18 @@ const Wrapper = styled.div`
 `;
 function App() {
   const {store, persistor} = initializeStore();
+  const [isLoginPageOpened, openLoginPage] = useState(false);
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <Wrapper>
           <Router>
-            <Header />
+            <Header openLoginPage={() => openLoginPage(!isLoginPageOpened)} />
+            <>
+            {
+              isLoginPageOpened ? <Login closeLoginPage={() => openLoginPage(false)} /> : ""
+            }
+            </>
             <Switch>
               <Route path="/" exact>
                 <Main />
@@ -36,8 +43,8 @@ function App() {
               <Route path="/homes/:id">
                 <HomeItem />
               </Route>
-              <Route path="/about">
-                <About />
+              <Route path="/profile">
+                <Profile />
               </Route>
               <Route path="/sell">
                 <Sell />

@@ -61,7 +61,6 @@ const TextBody = styled.div`
 export default function Item({i}) {
   return (
     <OutlineWrapper>
-    <Link to={`/homes/${i.id}`}>
       <Wrapper>
           <Image src={i.mainimg}/>
           <Title>{i.address}</Title>
@@ -76,7 +75,6 @@ export default function Item({i}) {
           <TextBody>{i.content.slice(0,100) + "..."}</TextBody>
           <Price>₽{i.price.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ')}</Price>
       </Wrapper>
-    </Link>
     </OutlineWrapper>
   );
 };

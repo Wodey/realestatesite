@@ -9,7 +9,13 @@ const Wrapper = styled.div`
   align-items: center;
   background: black;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 10%;
   margin-bottom: 4%;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;
 const Logo = styled.span`
   font-size: 1.5rem;
@@ -19,7 +25,7 @@ const Logo = styled.span`
 `;
 const Items = styled.div`
   display: flex;
-  width: 20%;
+  width: 15%;
   justify-content: space-around;
   @media(max-width: 768px) {
     width: 30%;
@@ -31,20 +37,20 @@ const Items = styled.div`
 const Item = styled.span`
   font-size: 1.3rem;
   cursor: pointer;
+  color: white;
   a {
     text-decoration: none;
     color: white;
   }
 `;
 
-export default function Header () {
+export default function Header ({openLoginPage}) {
   const address = useHistory().location.pathname;
   return (
     <Wrapper>
-      <Logo>realestate.com</Logo>
+      <Link to="/"><Logo>realestate.com</Logo></Link>
       <Items>
-        <Item isOn={address === "/"}><Link to="/">List</Link></Item>
-        <Item isActive={address === "/about"}><Link to="/about">About</Link></Item>
+        <Item isActive={address === "/login"} onClick={() => openLoginPage()}>Login</Item>
         <Item><Link to="/sell">Sell</Link></Item>
       </Items>
     </Wrapper>
